@@ -1,9 +1,0 @@
-{{ define "main" }}
-    {{ partial "top-includes/all.html" . }}
-
-    {{ .File.Path | safeHTML}}
-    {{ $markup := resources.Get "html/ajax-product-list-angular.html" | safeHTML}}
-    ----------------------------
-    {{ $markup | safeHTML }}
-    \\\\\\\\\\\\\\\\------------------------
-{{ end }}
