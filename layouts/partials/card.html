@@ -1,0 +1,30 @@
+
+<section class="card section-sm bg-1">
+    <div class="container">
+            {{"<!-- section title -->" | safeHTML}}
+            <div class="col-lg-12">
+                <div class="title text-center wow fadeInDown" data-wow-duration="500ms">
+                    <h2>{{ .header }}<span class="color"> {{ .headerspan }}</span></h2>
+                    <div class="border-meghna"></div>
+                </div>
+            </div>
+            {{"<!-- /section title -->" | safeHTML}}
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                {{ with .title}} <h2>{{ . }}</h2> {{ end }}
+                {{ with .content }} <p>{{ . }}</p> {{ end }}
+                <a href="{{ .url1}}" class="btn btn-main">
+                    {{with .btn1icon}} <i class="{{ . }}"></i> {{ end }}
+                    {{ with .btn1 }} {{ . }} {{end}}
+                </a>
+                {{ if .btn2 }}
+                <a href="{{ .url2}}" class="btn btn-main">
+                    {{with .btn2icon}} <i class="{{ . }}"></i> {{ end }}
+                    {{ with .btn2 }} {{ . }} {{end}}
+                </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    </section>

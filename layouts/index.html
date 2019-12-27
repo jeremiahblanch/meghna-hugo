@@ -6,15 +6,25 @@
 
     {{ partial "navigation.html" . }}
 
-    {{ partial "about.html" . }}
+    {{ $homePage := . }}
+    {{ range .Site.Params.frontPage.block }}
+        {{ if .root }}
+            {{ partial .partial $homePage }}
+        {{ else }}
+            {{ partial .partial . }}
+        {{ end }}
+    {{ end }}
 
-    {{ partial "cta.html" . }}
+    <div style="background: red; padding: 5px" ></div>
 
-    {{ partial "productsMajor.html" . }}
 
-    {{ partial "productsMinor.html" . }}
+    <section
+    class="background-slice section-sm bg-1 overly"
+    style="background-image: url( {{ .Site.Params.backgrounds.three | absURL }}     )">
+</section>
 
-    {{ partial "service.html" . }}
+
+
 
     {{ partial "skill.html" . }}
 
@@ -28,8 +38,12 @@
 
     {{ partial "testimonial.html" . }}
 
+
     {{ partial "blog.html" . }}
 
+
     {{ partial "contact.html" . }}
+
+    <div style="background: red; padding: 5px" ></div>
 
 {{ end }}

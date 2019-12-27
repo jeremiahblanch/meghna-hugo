@@ -1,17 +1,17 @@
 {{ if .Site.Params.banner.enable }}
 {{"<!-- Welcome Slider-->" | safeHTML}}
 <section class="hero-area" style='background-image: url("{{ .Site.Params.banner.bgImage | absURL }}");'>
-    <div class="block">
-        {{with .Site.Params.banner.icon}}
-        <div class="video-button">
-            <i class="{{ . }}"></i>
-        </div>
-        {{ end }}
-       {{with .Site.Params.banner.heading}} <h1>{{ . }}</h1>{{ end }}
-       {{with .Site.Params.banner.content}} <p>{{ . }}</p> {{ end }}
-       {{ if .Site.Params.banner.btn}}
-        <a data-scroll href="{{ .Site.Params.banner.btnURL}}" class="btn btn-transparent">{{ .Site.Params.banner.btnText}}</a>
-        {{ end }}
+    <div class="hero-brand">
+        <img class="logo-spiral" src="{{ .Site.Params.logoSpiral | absURL }}" alt="Spiral" />
+        <img class="logo-text" src="{{ .Site.Params.logoText | absURL }}" alt="Natural Floorcovering Centres" />
+    </div>
+    <div class="hero-content">
+        {{with .Site.Params.banner.content}} <p>{{ . }}</p> {{ end }}
+    </div>
+    <div class="hero-cta">
+        <a data-scroll href="#about" class="btn">
+            <i class="hero-cta-icon tf-ion-chevron-down"></i>
+        </a>
     </div>
 </section>
 {{"<!-- /Welcome Slider-->" | safeHTML}}

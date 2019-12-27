@@ -1,0 +1,9 @@
+{{ partial "footer-includes/google-analytics.html" . }}
+{{ partial "footer-includes/image-preloader.html" . }}
+{{ partial "footer-includes/theme-scripts.html" . }}
+{{ partial "footer-includes/additional-scripts.html" . }}
+<script>
+    window.__onLoadHooks && window.__onLoadHooks.length && $(() => {
+        window.__onLoadHooks.forEach((fn) => fn());
+    });
+</script>

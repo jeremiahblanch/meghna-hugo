@@ -1,0 +1,36 @@
+{{ if .Site.Data.showcase.enable}}
+{{"<!-- Start showcase Section -->" | safeHTML}}
+<section id="showcase" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                {{"<!-- section title -->" | safeHTML}}
+                <div class="title text-center wow fadeInDown">
+                    <h2> {{ with .Site.Data.showcase.heading }} {{ . }} {{ end }} <span class="color"> {{ with .Site.Data.showcase.headingSpan }} {{ . }} {{ end }} </span></h2>
+                    <div class="border-meghna"></div>
+                </div>
+            </div>
+            {{"<!-- /section title -->" | safeHTML}}
+
+            {{ range first 1 (where .Site.RegularPages "Type" "showcase" ) }}
+            {{"<!-- single showcase post -->" | safeHTML}}
+            <div class="row">
+                <div class="col-lg-4 col-md-6 media-wrapper">
+                    {{ with .Params.image }}<img src="{{ . | absURL }}" alt="post-image" class="img-fluid">{{ end }}
+                </div>
+                <div class="col-lg-8 col-md-6 content">
+                        <h3>{{ .Title }}</h3>
+
+                        <p>{{ .Description }}</p>
+
+                        <a class="btn btn-transparent" href="{{ .Permalink }}">{{ i18n "readMore" }}</a>
+                    </div>
+            </div>
+
+            {{"<!-- /single showcase post -->" | safeHTML}}
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{"<!-- /showcase -->" | safeHTML}}
+{{ end }}

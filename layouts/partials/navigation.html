@@ -1,45 +1,52 @@
 {{"<!-- Fixed Navigation -->" | safeHTML}}
-<nav id="navigation" class="navbar navbar-expand-lg navigation sticky-top">
-	<div class="container">
+<nav id="navigation" class="navigation {{ if .IsHome }}sticky-top{{ else }}position-fixed{{ end }}">
+	<div class="navbar navbar-expand-lg">
+		<div class="container">
 
-		{{"<!-- logo -->" | safeHTML}}
-		<a class="navbar-brand logo" href="{{ .Site.BaseURL | absURL }}">
-			<img src="{{ .Site.Params.logo | absURL }}" alt="Logo" />
-			<span class="pl-2 font-weight-bold">{{ .Site.Title }}</span>
-		</a>
-		{{"<!-- /logo -->" | safeHTML}}
+			{{"<!-- logo -->" | safeHTML}}
+			<a class="navbar-brand logo" href="{{ .Site.BaseURL | absURL }}">
+				<img class="logo-spiral" src="{{ .Site.Params.logoSpiral | absURL }}" alt="Spiral" />
+				<img class="logo-text" src="{{ .Site.Params.logoText | absURL }}" alt="Natural Floorcovering Centres" />
+			</a>
+			{{"<!-- /logo -->" | safeHTML}}
 
-		{{"<!-- responsive nav button -->" | safeHTML}}
-		<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		{{"<!-- /responsive nav button -->" | safeHTML}}
+			{{"<!-- responsive nav button -->" | safeHTML}}
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<i class="navbar-toggler-icon tf-ion-grid"></i>
 
-		{{"<!-- main nav -->" | safeHTML}}
-		{{ if .IsHome }}
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto navigation-menu">
-				<li class="nav-item"><a class="nav-link" data-scroll
-						href="#body">{{ with $.Site.Params.home }}{{ . }}{{ end }}</a></li>
-				{{ range $.Site.Menus.nav }}
-				<li class="nav-item"><a class="nav-link" data-scroll href="#{{ .URL }}">{{ .Name }}</a></li>
-				{{ end }}
-			</ul>
+			</button>
+			{{"<!-- /responsive nav button -->" | safeHTML}}
+
+			{{"<!-- main nav -->" | safeHTML}}
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav navigation-menu">
+					<li class="nav-item">
+						<a class="nav-link" data-scroll
+							href="{{ $.Site.BaseURL }}#body">{{ with $.Site.Params.home }}{{ . }}{{ end }}</a></li>
+					{{ range .Site.Menus.nav }}
+						<li class="nav-item  {{ if .Children }}has-sub-menu{{ end }}">
+							<a class="nav-link" data-scroll href="/{{ .URL }}">{{ .Title }}</a>
+							{{ if .Children }}
+							<ul class="sub-menu">
+								{{ range .Children }}
+									<li class="{{ if $.IsMenuCurrent "nav" . }}active{{ end }}">
+										<a class="nav-link" href="/{{ .URL }}">{{ .Title }}</a>
+									</li>
+								{{ end }}
+							</ul>
+							{{ end }}
+
+						</li>
+					{{ end }}
+				</ul>
+			</div>
+
+
+			{{"<!-- /main nav -->" | safeHTML}}
 		</div>
-		{{ else }}
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto navigation-menu">
-				<li class="nav-item"><a class="nav-link" data-scroll
-						href="{{ $.Site.BaseURL }}#body">{{ with $.Site.Params.home }}{{ . }}{{ end }}</a></li>
-				{{ range $.Site.Menus.nav }}
-				<li class="nav-item"><a class="nav-link" data-scroll href="{{ $.Site.BaseURL }}#{{ .URL }}">{{ .Name }}</a></li>
-				{{ end }}
-			</ul>
-		</div>
-		{{ end }}
-		{{"<!-- /main nav -->" | safeHTML}}
 	</div>
 </nav>
 {{"<!-- End Fixed Navigation -->" | safeHTML}}

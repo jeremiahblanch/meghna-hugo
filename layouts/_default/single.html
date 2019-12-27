@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-{{ partial "navigation.html" . }}
+{{ partial "top-includes/all.html" . }}
 
 <section class="section">
     <div class="container">
@@ -9,7 +9,7 @@
                 <h1>{{ .Title }}</h1>
                 <ul class="list-inline mb-50">
                     <li class="list-inline-item"><a href="/author/{{ urlize .Params.author}}">{{ .Params.author }}</a></li>
-                    <li class="list-inline-item">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</li>
+                    <li class="list-inline-item">{{with .Date }}{{ dateFormat "Monday, Jan 2, 2006" . }}{{ end }}</li>
                 </ul>
                 {{ with .Params.image }}<img class="img-fluid mb-50" src="{{ . | absURL }}" alt="blog-image">{{ end }}
             </div>
@@ -25,5 +25,10 @@
         </div>
     </div>
 </section>
+
+{{ $here := . }}
+{{ with .Page.Params.partial }}
+    {{ partial . $here }}
+{{ end }}
 
 {{ end }}

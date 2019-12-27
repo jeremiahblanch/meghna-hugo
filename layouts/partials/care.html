@@ -1,13 +1,16 @@
 {{ if .Site.Data.care.enable}}
 {{"<!-- Start Care Section -->" | safeHTML}}
-{{ $data := index .Site.Data .Site.Language.Lang }}
+
 <section id="care" class="section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 {{"<!-- section title -->" | safeHTML}}
                 <div class="title text-center wow fadeInDown">
-                    <h2> {{ with $data.care.heading }} {{ . }} {{ end }} <span class="color"> {{ with $data.care.headingSpan }} {{ . }} {{ end }} </span></h2>
+                        <h2>
+                            {{ with .Site.Data.care.heading }} {{ . }} {{ end }}
+                            <span class="color"> {{ with .Site.Data.care.headingSpan }} {{ . }} {{ end }} </span>
+                        </h2>
                     <div class="border-meghna"></div>
                 </div>
             </div>

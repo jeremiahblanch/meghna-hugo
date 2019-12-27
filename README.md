@@ -1,14 +1,13 @@
-<div align="center">
-<h1><a href="https://themefisher.com/hugo-themes/">Meghna Hugo</a></h1>
-[![GitHub stars](https://img.shields.io/github/stars/themefisher/meghna-hugo.svg)](https://github.com/themefisher/meghna-hugo/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/themefisher/meghna-hugo.svg)](https://github.com/themefisher/meghna-hugo/issues) 
-[![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/themefisher/meghna-hugo.svg?maxAge=2592000)]() 
-[![GitHub forks](https://img.shields.io/github/forks/themefisher/meghna-hugo.svg)](https://github.com/themefisher/meghna-hugo/network)
-<img src="https://user-images.githubusercontent.com/37659754/54068559-44d79a80-4278-11e9-9601-f58d6879989c.gif" alt="screenshot" width="100%">
-</div>
+<div style="text-align: center">
 
-Meghna is a clean, unique, business website template. Built with refined business as well as corporate elements, and saturated with rich typography, Meghna is lightweight, fast-loading, responsive and W3C-validated, delivering a great first impression to visitors.
-**The images are only for demonstration purpose, Please don't use those images.**
+<h1>Texture Hugo Template</h1>
+
+<p>Forked from ThemeFisher's <a href="https://themefisher.com/hugo-themes/">Meghna Hugo</a>
+<br>
+[![GitHub stars](https://img.shields.io/github/stars/themefisher/meghna-hugo.svg)](https://github.com/themefisher/meghna-hugo/stargazers)
+[![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/themefisher/meghna-hugo.svg?maxAge=2592000)]()
+[![GitHub forks](https://img.shields.io/github/forks/themefisher/meghna-hugo.svg)](https://github.com/themefisher/meghna-hugo/network)
+</p>
 
 ## Table of Contents
 
@@ -41,7 +40,7 @@ If your problem or idea is not addressed yet, [open a new issue](https://github.
 
 ## Technical Support or Questions
 
-If you have questions or need help integrating the product please [contact us](mailto:themefisher@gmail.com) instead of opening an issue.  
+If you have questions or need help integrating the product please [contact us](mailto:themefisher@gmail.com) instead of opening an issue.
 
 ## Licensing
 

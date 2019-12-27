@@ -1,0 +1,3 @@
+{{ range (union .Site.Params.additionalScripts .Page.Params.additionalScripts)}}
+    <script type="text/javascript" src="{{ . | absURL}}"></script>
+{{ end }}

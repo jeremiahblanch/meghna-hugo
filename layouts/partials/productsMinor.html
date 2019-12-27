@@ -1,12 +1,12 @@
 {{ if .Site.Data.productsMinor.enable}}
 {{"<!-- productsMinor -->" | safeHTML }}
-<section id="products-minor" class="bg-one section">
+<section id="products-minor" class="parallax-section bg-1 section overly bg-one">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 {{"<!-- section title -->" | safeHTML }}
                 <div class="title text-center wow fadeIn" data-wow-duration="500ms">
-                    <h2>{{ with .Site.Data.products.heading }} {{ . }} {{ end }}<span class="color">{{ with .Site.Data.products.headingSpan }} {{ . }} {{ end }}</span></h2>
+                    <h2>{{ with .Site.Data.productsMinor.heading }} {{ . }} {{ end }}<span class="color">{{ with .Site.Data.productsMinor.headingSpan }} {{ . }} {{ end }}</span></h2>
                     <div class="border-meghna"></div>
                 </div>
             </div>
@@ -14,13 +14,19 @@
 
             {{ range .Site.Data.productsMinor.items}}
             {{"<!-- Single Product Item -->" | safeHTML }}
-            <article class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-duration="500ms">
-                <div class="service-block text-center">
+            <article class="col-lg-6 col-md-6 col-12 wow fadeInUp" data-wow-duration="500ms">
+                <div class="team-member">
                     <div class="member-photo">
-                        <img class="img-fluid" src="{{ .image | absURL }}" alt="{{ .title }}">
+                        {{"<!-- member photo -->" | safeHTML}}
+                        <img class="img-fluid" src="{{ .image | absURL }}" alt="Meghna">
                     </div>
-                    <h3>{{ .title }}</h3>
-                    <p>{{ .content }}</p>
+                    <div class="member-meta">
+                        <h4>{{ .title }}</h4>
+                        <p>{{ .content }}</p>
+
+                        <a class="btn btn-transparent" href="{{ .btnUrl }}">{{ i18n "readMore" }}</a>
+
+                    </div>
                 </div>
             </article>
             {{"<!-- End Single Product Item -->" | safeHTML }}

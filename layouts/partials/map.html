@@ -1,0 +1,8 @@
+{{"<!-- Google Map -->" | safeHTML}}
+<div class="google-map">
+    <div
+        id="{{ range . }}{{ . | base64Encode}}{{ end }}"
+        class="map-canvas"
+        data-points="{{ . }}">
+    </div>
+</div>

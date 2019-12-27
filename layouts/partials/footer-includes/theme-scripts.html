@@ -1,0 +1,39 @@
+{{"<!-- Main jQuery -->" | safeHTML}}
+<script type="text/javascript" src="{{ "plugins/jquery/dist/jquery.min.js" | absURL}}"></script>
+{{"<!-- Bootstrap 4.3 + Popper -->" | safeHTML}}
+<script type="text/javascript" src="{{ "plugins/bootstrap/dist/js/bootstrap.bundle.min.js" | absURL}}"></script>
+{{"<!-- Slick Carousel -->" | safeHTML}}
+<script type="text/javascript" src="{{ "plugins/slick-carousel/slick/slick.min.js" | absURL}}"></script>
+{{"<!-- Portfolio Filtering -->" | safeHTML}}
+<script type="text/javascript" src="{{ "plugins/filterzr/jquery.filterizr.min.js" | absURL}}"></script>
+{{"<!-- Magnific popup -->" | safeHTML}}
+<script type="text/javascript" src="{{ "plugins/magnific-popup/dist/jquery.magnific-popup.min.js" | absURL}}"></script>
+{{"<!-- Google Map API -->" | safeHTML}}
+{{ with .Site.Params.gmapAPI}}
+<script type="text/javascript"  src="{{ . | absURL }}"></script>
+{{ end }}
+{{"<!-- Number Counter Script -->" | safeHTML}}
+<script type="text/javascript" src="{{ "plugins/count-to/jquery.countTo.js" | absURL}}"></script>
+
+{{"<!-- wow.min Script -->" | safeHTML}}
+<scrDISABLEDipt type="text/javascript" src="{{ "plugins/wow/dist/wow.min.js" | absURL}}"></scrDISABLEDipt>
+
+
+{{"<!-- Scroll behavior polyfill -->" | safeHTML}}
+{{ $scroll := resources.Get "js/scroll-behavior-polyfill.js" | minify}}
+<script src="{{ $scroll.Permalink }}"></script>
+{{"<!-- Sweet Alert -->" | safeHTML}}
+<scrDISABLEDipt type="text/javascript" src="{{ "plugins/sweet-alert/sweetalert.min.js" | absURL}}"></scrDISABLEDipt>
+
+{{"<!-- MegaHuno JS - TODO - Audit -->" | safeHTML}}
+{{ $script := resources.Get "js/megahuno.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
+
+{{"<!-- Custom JS - TODO - Audit -->" | safeHTML}}
+{{ $script := resources.Get "js/texture-theme.js" }}
+<script src="{{ $script.Permalink }}"></script>
+{{ $script := resources.Get "js/google-map.js" }}
+<script src="{{ $script.Permalink }}"></script>
+
+{{"<!-- DEV IGNORE'd  partial 'footer-includes/google-analytics.html' . -->" | safeHTML}}
+{{partial "footer-includes/image-preloader.html" . }}

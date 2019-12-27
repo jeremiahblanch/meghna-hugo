@@ -1,7 +1,10 @@
 {{ define "main" }}
 
-{{ partial "navigation.html" . }}
+{{ partial "top-includes/all.html" . }}
 
+<p>
+    {{ .Content }}
+</p>
 {{"<!-- Start Blog Section -->" | safeHTML}}
 <section id="blog" class="section">
     <div class="container">

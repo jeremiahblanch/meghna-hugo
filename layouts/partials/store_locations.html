@@ -1,0 +1,67 @@
+{{ if .Site.Data.store_locations.enable}}
+{{"<!-- store_location -->" | safeHTML }}
+<section id="store_locations"class="">
+
+{{ $Site := .Site }}
+{{ range .Site.Data.store_locations.groups}}
+    {{ $wkey := print ".Params." .param }}
+    {{ $pages := slice }}
+    {{ $points := slice }}
+    {{ range (where (where $Site.RegularPages "Type" "store_location") $wkey .value) }}
+        {{ $pages = $pages | append . }}
+        {{ $points = $points | append .Params.latitude_longitude}}
+    {{ end }}
+    {{ partial "map.html" $points }}
+    <div class="bg-one section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                        <h2>
+                            <span class="color">{{ .headingPre }}</span>
+                            {{ .heading}}
+                            <span class="color">{{ .headingPost }}</span>
+                        </h2>
+                        <div class="border-meghna"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                {{ range $pages }}
+                    {{ with .Params }}
+                    <article class="col-lg-4 col-md-6 col-12 wow fadeInUp" data-wow-duration="500ms">
+                        <div class="team-member text-center">
+                            <div class="member-photo">
+                                <img class="img-fluid" src="{{ .image | absURL }}" alt="{{ .title }}">
+                                <div class="mask">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="call::{{ .phone_for_dialing }}">
+                                                <i class="tf-dial"></i>
+                                                {{ .phone_readable }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="member-meta">
+                                <div class="map">
+                                    <p>{{ .map_url }}</p>
+                                </div>
+                                <p>{{ .street_address }} {{ .suburb }}  {{ .state }} {{ .postcode }}</p>
+                            </div>
+                        </div>
+                    </article>
+                {{ end }}
+            {{ end }}
+            </div>
+        </div>
+    </div>
+
+{{ end }}
+
+</section>
+{{"<!-- /store_location -->" | safeHTML }}
+{{ end }}

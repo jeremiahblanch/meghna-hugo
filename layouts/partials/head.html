@@ -25,13 +25,31 @@
     {{"<!-- Slick Carousel -->"|safeHTML}}
     <link rel="stylesheet" href="{{"plugins/slick-carousel/slick/slick.css"|absURL}}">
     <link rel="stylesheet" href="{{"plugins/slick-carousel/slick/slick-theme.css"|absURL}}">
-    {{"<!-- Main Stylesheet -->"|safeHTML}}
+
+    {{"<!-- OLD NFC STYLE SHEET -->"|safeHTML}}
+    <link rel="stylesheet" href="{{"plugins/old-nfc/styles/product-thumbnail.css"|absURL}}">
+    <link rel="stylesheet" href="{{"plugins/old-nfc/styles/tag.css"|absURL}}">
+    <link rel="stylesheet" href="{{"plugins/old-nfc/styles/thumbnail.css"|absURL}}">
+
+    {{"<!-- Mega Huno Stylesheet -->"|safeHTML}}
     {{ $styles := resources.Get "css/style.css" | minify}}
     <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
-    {{ "<!-- Custom CSS -->" | safeHTML }}
+
+    {{"<!-- Texture Theme Stylesheet -->"|safeHTML}}
+    {{ $styles := resources.Get "css/texture-theme.css" | minify}}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+
+    {{ "<!-- Site Custom CSS -->" | safeHTML }}
     {{ range .Site.Params.custom_css }}
     <link rel="stylesheet" href="{{ . | absURL }}">
     {{ end }}
+    {{ range (union .Site.Params.additionalCss .Page.Params.additionalCss)}}
+        <link rel="stylesheet" href="{{ . | absURL }}">
+    {{ end }}
+
+    <script>
+        window.__onLoadHooks = [];
+    </script>
 
 {{- partial "head_custom.html" . }}
 </head>
