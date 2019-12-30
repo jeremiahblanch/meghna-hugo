@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+{{ partial "top-includes/all.html" . }}
+
+<p>
+    {{ .Content }}
+</p>
+{{"<!-- Start Blog Section -->" | safeHTML}}
+<section id="blog" class="section">
+    <div class="container">
+        <div class="row">
+
+            {{ range .Data.Pages }}
+            {{"<!-- single blog post -->" | safeHTML}}
+            {{ .Render "product" }}
+            {{"<!-- /single blog post -->" | safeHTML}}
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{"<!-- /blog -->" | safeHTML}}
+
+{{ end }}

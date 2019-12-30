@@ -1,0 +1,34 @@
+{{ define "main" }}
+
+{{ partial "top-includes/all.html" . }}
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <h1>{{ .Title }}</h1>
+                <ul class="list-inline mb-50">
+                    <li class="list-inline-item"><a href="/author/{{ urlize .Params.author}}">{{ .Params.author }}</a></li>
+                    <li class="list-inline-item">{{with .Date }}{{ dateFormat "Monday, Jan 2, 2006" . }}{{ end }}</li>
+                </ul>
+                <img class="img-fluid mb-50" src="{{ .Site.Params.materialImageURLPrefix }}{{ .Params.image }}" alt="{{.Title}}">
+            </div>
+            <div class="col-lg-8 offset-lg-2">
+                <div class="post-single-content">
+                    {{ .Content }}
+                    {{ if .Site.Data.blog.sharing}}
+                        {{ partial "share_post" . }}
+                    {{ end }}
+                    {{ partial "post_comments" . }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ $here := . }}
+{{ with .Page.Params.partial }}
+    {{ partial . $here }}
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,6 @@
+<script>
+    //Should go last
+    window.__onLoadHooks && window.__onLoadHooks.length && $(() => {
+        window.__onLoadHooks.forEach((fn) => fn());
+    });
+</script>
